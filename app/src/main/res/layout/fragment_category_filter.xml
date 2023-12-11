@@ -3,10 +3,59 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="horizontal"
+    android:padding="16dp">
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+    <com.example.unigather.fragments.FilterTabView
+        android:id="@+id/tabType"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textAlignment="center"
+        android:textDirection="firstStrongRtl" />
+
+    <com.example.unigather.fragments.FilterTabView
+        android:id="@+id/tabOfficial"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+    <com.example.unigather.fragments.FilterTabView
+        android:id="@+id/tabCampus"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content" />
+
+    <com.example.unigather.fragments.FilterTabView
+        android:id="@+id/tabTime"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content" />
+    <!--    <Button-->
+<!--        android:id="@+id/buttonType"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_weight="1"-->
+<!--        android:text="类型" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/buttonOfficial"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_weight="1"-->
+<!--        android:text="是否官方" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/buttonCampus"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_weight="1"-->
+<!--        android:text="校区" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/buttonTime"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_weight="1"-->
+<!--        android:text="时间" />-->
 </LinearLayout>
+
+

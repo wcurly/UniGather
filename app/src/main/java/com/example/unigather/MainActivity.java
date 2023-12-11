@@ -14,13 +14,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getSupportFragmentManager().beginTransaction()
-                .add(R.id.fragmentContainer, new HotEventsFragment())
-                .commit();
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.containerHotEvents, new HotEventsFragment())
+                    .commit();
+        }
 
-//        // 添加分类筛选Fragment
-//        getSupportFragmentManager().beginTransaction()
-//                .add(R.id.fragmentContainer, new CategoryFilterFragment())
-//                .commit();
+        // 加载 CategoryFilterFragment
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.containerCategoryFilter, new CategoryFilterFragment())
+                    .commit();
+        }
     }
 }
