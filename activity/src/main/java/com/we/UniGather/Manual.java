@@ -9,3 +9,5 @@ public class Manual {
         SpringApplication.run(Manual.class);
     }
 }
+
+

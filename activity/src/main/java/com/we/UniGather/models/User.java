@@ -14,6 +14,7 @@ public class User {
     private String username;
     private String email;
     private String password;
+    private String verificationCode;
     private boolean enabled;
 
     // Getters and setters, constructors
@@ -44,6 +45,14 @@ public class User {
 
     public String getPassword() {
         return password;
+    }
+
+    public void setVerificationCode(String verificationCode){
+        this.verificationCode = verificationCode;
+    }
+
+    public String getVerificationCode(){
+        return this.verificationCode;
     }
 
     public void setPassword(String password) {
