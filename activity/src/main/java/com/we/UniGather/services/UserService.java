@@ -27,7 +27,7 @@ public class UserService {
 
     public void registerUser(String email, String password) {
         // 检查邮箱是否已被注册且用户已激活
-        User existingUser = userRepository.findByEmailAndIsEnabled(email, true);
+        User existingUser = userRepository.findByEmailAndEnabledEquals(email, true);
         if (existingUser != null) {
             throw new IllegalArgumentException("Email is already registered and activated");
         }
@@ -74,6 +74,17 @@ public class UserService {
             user.setEnabled(true); // 激活用户
             userRepository.save(user); // 更新用户状态
             return true;
+        }
+        return false;
+    }
+
+    public boolean verifyPassword(String email, String password) {
+        // 从数据库中获取用户信息
+        User user = userRepository.findByEmail(email);
+
+        if (user != null && user.isEnabled()) { // 检查用户是否存在且已激活
+            // 应该使用密码加密器来验证密码
+            return user.getPassword().equals(password);
         }
         return false;
     }

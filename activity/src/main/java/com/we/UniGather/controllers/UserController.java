@@ -40,7 +40,7 @@ public class UserController {
         }
 
         // 验证用户输入的密码是否与数据库中存储的密码匹配
-        if (userService.verify(email, password)) {
+        if (userService.verifyPassword(email, password)) {
             // 登录成功，返回成功信息或者用户信息
             return ResponseEntity.ok("Login successful");
         } else {
