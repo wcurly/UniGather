@@ -37,6 +37,17 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-mail</artifactId>
         </dependency>
+        <!--redis场景启动器-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <!-- redis 连接池 -->
+        <!--新版本连接池lettuce-->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+        </dependency>
         <!-- Spring Boot Starter Security -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -57,6 +68,11 @@
             <artifactId>mybatis-generator-maven-plugin</artifactId>
             <version>1.4.1</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.7</version>
+        </dependency>
     </dependencies>
     <!--
     <build>
@@ -73,11 +89,7 @@
             </plugin>
         </plugins>
     </build>
-
     -->
-
-
-
 
 
 </project>

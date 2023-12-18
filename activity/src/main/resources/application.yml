@@ -4,6 +4,27 @@ spring:
     username: root
     password: Hyk200302194525
     driver-class-name: com.mysql.cj.jdbc.Driver
+  # mail邮箱
+  mail:
+    # SMTP服务器
+    host: smtp.163.com
+    # 发送验证码的邮箱
+    username: yexing_work@163.com
+    password: Hyk200302194525
+    default-encoding: utf-8
+    properties:
+      mail:
+        smtp:
+          ssl:
+            enable: true
+            required: true
+          # 邮件接收时间的限制，单位毫秒
+          timeout: 10000
+          # 连接时间的限制，单位毫秒
+          connection-timeout: 10000
+          # 邮件发送时间的限制，单位毫秒
+          write-timeout: 10000
+
 
 mybatis:
   mapper-locations: classpath*:mapper/*.xml
