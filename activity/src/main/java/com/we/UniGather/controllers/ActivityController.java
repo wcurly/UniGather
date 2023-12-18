@@ -6,6 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/activities")
 public class ActivityController {
@@ -24,6 +26,17 @@ public class ActivityController {
             return new ResponseEntity<>(newActivity, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Activity> getActivityById(@PathVariable("id") Long id) {
+        Optional<Activity> activityData = activityRepository.findById(id);
+
+        if (activityData.isPresent()) {
+            return new ResponseEntity<>(activityData.get(), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 }
