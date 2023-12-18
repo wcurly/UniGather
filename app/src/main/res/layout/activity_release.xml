@@ -31,9 +31,11 @@
     <EditText
         android:id="@+id/editTextTitle"
         android:layout_width="0dp"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
+        android:layout_marginEnd="12dp"
         android:hint="必填"
+        android:inputType="textMultiLine"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline1"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -43,14 +45,14 @@
         android:id="@+id/activityTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="30dp"
         android:text="活动时间"
         android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="@color/black"
         app:layout_constraintEnd_toStartOf="@+id/guideline1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/activityTitle"/>
+        app:layout_constraintTop_toBottomOf="@+id/editTextTitle"/>
 
     <!-- 地点选择 -->
     <TextView
@@ -134,25 +136,26 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="13dp"
+        android:layout_marginEnd="12dp"
         android:hint="必填"
         android:inputType="textMultiLine"
         app:layout_constraintStart_toStartOf="@id/guideline1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/spinnerType" />
 
-    <!-- 海报 -->
+<!--     海报-->
     <TextView
         android:id="@+id/activityPoster"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="30dp"
         android:text="海报"
         android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="@color/black"
         app:layout_constraintEnd_toStartOf="@+id/guideline1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/activityDescription"/>
+        app:layout_constraintTop_toBottomOf="@+id/editTextDescription"/>
 
 <!--    <ImageView-->
 <!--        android:id="@+id/selectedImageView"-->
@@ -172,7 +175,7 @@
         app:layout_constraintStart_toStartOf="@+id/guideline1"
         app:layout_constraintTop_toTopOf="@+id/activityPoster"/>
 
-    <!--活动相关图片-->
+<!--    活动相关图片-->
     <TextView
         android:id="@+id/activityPicture"
         android:layout_width="wrap_content"
@@ -186,20 +189,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/activityPoster"/>
 
-
-    <!-- 发布按钮 -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline1"
         app:layout_constraintTop_toTopOf="@id/activityPicture"
         app:spanCount="3" />
 
+    <!-- 发布按钮 -->
     <Button
         android:id="@+id/btnPublish"
         android:layout_width="200dp"
