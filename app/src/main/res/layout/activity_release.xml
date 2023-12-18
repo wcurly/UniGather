@@ -28,6 +28,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
+    <ImageView
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/asterisk"
+        app:layout_constraintEnd_toStartOf="@id/guideline1"
+        app:layout_constraintTop_toTopOf="@id/activityTitle"/>
+
+
     <EditText
         android:id="@+id/editTextTitle"
         android:layout_width="0dp"
@@ -54,6 +64,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTitle"/>
 
+    <ImageView
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/asterisk"
+        app:layout_constraintEnd_toStartOf="@id/guideline1"
+        app:layout_constraintTop_toTopOf="@id/activityTime"/>
+
     <!-- 地点选择 -->
     <TextView
         android:id="@+id/activityLocation"
@@ -67,6 +86,15 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/activityTime"/>
+
+    <ImageView
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/asterisk"
+        app:layout_constraintEnd_toStartOf="@id/guideline1"
+        app:layout_constraintTop_toTopOf="@id/activityLocation"/>
 
     <RadioGroup
         android:id="@+id/radioGroupLocation"
@@ -107,6 +135,16 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/activityLocation"/>
+
+    <ImageView
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/asterisk"
+        app:layout_constraintEnd_toStartOf="@id/guideline1"
+        app:layout_constraintTop_toTopOf="@id/activityType"/>
+
     <Spinner
         android:id="@+id/spinnerType"
         android:layout_width="0dp"
@@ -130,6 +168,15 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/activityType"/>
+
+    <ImageView
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/asterisk"
+        app:layout_constraintEnd_toStartOf="@id/guideline1"
+        app:layout_constraintTop_toTopOf="@id/activityDescription"/>
 
     <EditText
         android:id="@+id/editTextDescription"
@@ -197,6 +244,7 @@
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline1"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/activityPicture"
         app:spanCount="3" />
 
@@ -207,6 +255,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="28dp"
         android:text="发布"
+        android:onClick="onReleaseButtonClick"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
