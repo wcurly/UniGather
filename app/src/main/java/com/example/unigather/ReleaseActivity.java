@@ -2,17 +2,23 @@ package com.example.unigather;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.Calendar;
 
 
 public class ReleaseActivity extends AppCompatActivity {
     private EditText editTextTitle;
     private EditText editTextDescription;
+    private TextView tvSelectDate;
     private RadioGroup radioGroupLocation;
     private static final int RADIO_BUTTON_LOCATION_1 = R.id.radioButtonLocation1;
     private static final int RADIO_BUTTON_LOCATION_2 = R.id.radioButtonLocation2;
@@ -25,8 +31,33 @@ public class ReleaseActivity extends AppCompatActivity {
         editTextTitle = findViewById(R.id.editTextTitle);
         editTextDescription=findViewById(R.id.editTextDescription);
         radioGroupLocation = findViewById(R.id.radioGroupLocation);
+        tvSelectDate = findViewById(R.id.tvSelectDate);
+        tvSelectDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDatePickerDialog();
+            }
+        });
     }
 
+    private void showDatePickerDialog() {
+        // 获取当前日期
+        final Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this,
+                new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        //用户选择的日期
+                        String selectedDate = year + "-" + (month + 1) + "-" + dayOfMonth;
+                        tvSelectDate.setText(selectedDate);
+                    }
+                }, year, month, day);
+        datePickerDialog.show();
+    }
     public void onReleaseButtonClick(View view) {
         // 获取用户输入的标题
         String title = editTextTitle.getText().toString();

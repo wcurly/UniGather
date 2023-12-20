@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -14,13 +13,12 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.25" />
 
-    <!--活动名称-->
     <TextView
         android:id="@+id/activityTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="活动名称"
+        android:text="@string/activity_title"
         android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="@color/black"
@@ -37,32 +35,44 @@
         app:layout_constraintEnd_toStartOf="@id/guideline1"
         app:layout_constraintTop_toTopOf="@id/activityTitle"/>
 
-
     <EditText
         android:id="@+id/editTextTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="12dp"
-        android:hint="必填"
+        android:hint="@string/required_hint"
         android:inputType="textMultiLine"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline1"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- 时间 -->
     <TextView
         android:id="@+id/activityTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="活动时间"
+        android:text="@string/activity_time"
         android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="@color/black"
         app:layout_constraintEnd_toStartOf="@+id/guideline1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTitle"/>
+
+    <TextView
+        android:id="@+id/tvSelectDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/select_date"
+        android:textSize="18sp"
+        android:padding="8dp"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintStart_toEndOf="@id/guideline1"
+        app:layout_constraintTop_toTopOf="@id/activityTime"
+        app:layout_constraintBottom_toBottomOf="@id/activityTime" />
 
     <ImageView
         android:layout_width="10dp"
@@ -73,13 +83,12 @@
         app:layout_constraintEnd_toStartOf="@id/guideline1"
         app:layout_constraintTop_toTopOf="@id/activityTime"/>
 
-    <!-- 地点选择 -->
     <TextView
         android:id="@+id/activityLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
-        android:text="校区"
+        android:text="@string/activity_location"
         android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="@color/black"
@@ -110,7 +119,7 @@
             android:id="@+id/radioButtonLocation1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="中北"
+            android:text="@string/campus_north"
             android:textSize="18sp"/>
 
         <RadioButton
@@ -118,17 +127,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:text="闵行"
+            android:text="@string/campus_minhang"
             android:textSize="18sp"/>
     </RadioGroup>
 
-    <!-- 类型选择 -->
     <TextView
         android:id="@+id/activityType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
-        android:text="类型"
+        android:text="@string/activity_type"
         android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="@color/black"
@@ -155,13 +163,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/radioGroupLocation" />
 
-    <!-- 活动简介-->
     <TextView
         android:id="@+id/activityDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
-        android:text="活动简介"
+        android:text="@string/activity_description"
         android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="@color/black"
@@ -184,34 +191,24 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="13dp"
         android:layout_marginEnd="12dp"
-        android:hint="必填"
+        android:hint="@string/required_hint"
         android:inputType="textMultiLine"
         app:layout_constraintStart_toStartOf="@id/guideline1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/spinnerType" />
 
-<!--     海报-->
     <TextView
         android:id="@+id/activityPoster"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="海报"
+        android:text="@string/activity_poster"
         android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="@color/black"
         app:layout_constraintEnd_toStartOf="@+id/guideline1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextDescription"/>
-
-<!--    <ImageView-->
-<!--        android:id="@+id/selectedImageView"-->
-<!--        android:layout_width="80dp"-->
-<!--        android:layout_height="80dp"-->
-<!--        android:src="@drawable/ic_placeholder"-->
-<!--        android:layout_centerInParent="true"-->
-<!--        app:layout_constraintStart_toStartOf="@+id/guideline1"-->
-<!--        app:layout_constraintTop_toTopOf="@+id/activityPoster"/>-->
 
     <include
         android:id="@+id/includedLayout"
@@ -228,7 +225,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
-        android:text="相关图片"
+        android:text="@string/related_images"
         android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="@color/black"
@@ -254,7 +251,7 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="28dp"
-        android:text="发布"
+        android:text="@string/publish_button"
         android:onClick="onReleaseButtonClick"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"

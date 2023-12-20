@@ -3,4 +3,18 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_login">LoginActivity</string>
+
+    <!--    发布页面-->
+    <string name="activity_title">活动名称</string>
+    <string name="required_hint">必填</string>
+    <string name="activity_time">活动时间</string>
+    <string name="select_date">请点击选择日期</string>
+    <string name="activity_location">校区</string>
+    <string name="campus_north">中北</string>
+    <string name="campus_minhang">闵行</string>
+    <string name="activity_type">类型</string>
+    <string name="activity_description">活动简介</string>
+    <string name="activity_poster">海报</string>
+    <string name="related_images">相关图片</string>
+    <string name="publish_button">发布</string>
 </resources>
