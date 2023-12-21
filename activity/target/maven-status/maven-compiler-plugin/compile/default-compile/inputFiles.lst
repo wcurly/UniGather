@@ -1,6 +1,9 @@
 /Users/echo/Documents/GitHub/UniGather/activity/src/main/java/com/we/UniGather/SecurityConfig.java
 /Users/echo/Documents/GitHub/UniGather/activity/src/main/java/com/we/UniGather/controllers/UserController.java
 /Users/echo/Documents/GitHub/UniGather/activity/src/main/java/com/we/UniGather/repositories/UserRepository.java
+/Users/echo/Documents/GitHub/UniGather/activity/src/main/java/com/we/UniGather/repositories/ActivityRepository.java
+/Users/echo/Documents/GitHub/UniGather/activity/src/main/java/com/we/UniGather/controllers/ActivityController.java
 /Users/echo/Documents/GitHub/UniGather/activity/src/main/java/com/we/UniGather/services/UserService.java
+/Users/echo/Documents/GitHub/UniGather/activity/src/main/java/com/we/UniGather/models/Activity.java
 /Users/echo/Documents/GitHub/UniGather/activity/src/main/java/com/we/UniGather/Manual.java
 /Users/echo/Documents/GitHub/UniGather/activity/src/main/java/com/we/UniGather/models/User.java

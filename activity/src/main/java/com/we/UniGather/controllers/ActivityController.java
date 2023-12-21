@@ -19,7 +19,7 @@ public class ActivityController {
         this.activityRepository = activityRepository;
     }
 
-    @PostMapping
+    @PostMapping("/create")
     public ResponseEntity<Activity> createActivity(@RequestBody Activity activity) {
         try {
             Activity newActivity = activityRepository.save(activity);
@@ -28,6 +28,7 @@ public class ActivityController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
 
     @GetMapping("/{id}")
     public ResponseEntity<Activity> getActivityById(@PathVariable("id") Long id) {

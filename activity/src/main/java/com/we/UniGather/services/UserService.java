@@ -102,7 +102,7 @@ public class UserService {
         return String.valueOf(code);
     }
 
-    public boolean verify(String email, String enteredCode) {
+    /*public boolean verify(String email, String enteredCode) {
         // 根据邮箱从数据库或缓存中获取之前发送的验证码
         User user = userRepository.findByEmail(email);
         if (user != null && user.getVerificationCode().equals(enteredCode)) {
@@ -112,6 +112,20 @@ public class UserService {
             return true;
         }
         return false;
+    }*/
+
+    public void activateUser(String email) {
+        User user = userRepository.findByEmail(email);
+        user.setEnabled(true);
+        userRepository.save(user);
+    }
+
+    public String getVerificationCode(String email) {
+        User user = userRepository.findByEmail(email);
+        if (user != null) {
+            return user.getVerificationCode();
+        }
+        return null;
     }
 
     public boolean verifyPassword(String email, String password) {
