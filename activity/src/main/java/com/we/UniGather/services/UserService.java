@@ -74,7 +74,10 @@ public class UserService {
             SimpleMailMessage mailMessage = new SimpleMailMessage();
             mailMessage.setTo(email);
             mailMessage.setSubject("Verification Code for UniGather");
-            mailMessage.setText("Your verification code is: " + verificationCode);
+            mailMessage.setText("Your verification code is: " + verificationCode + "\n" +
+                    "Please enter this code to activate your account." + "\n" +
+                    "If you did not register for UniGather, please ignore this email." + "\n" +
+                    "The verification code will expire in 5 minutes.");
 
             try {
                 // 对方看到的发送邮箱
@@ -121,11 +124,10 @@ public class UserService {
     }
 
     public String getVerificationCode(String email) {
-        User user = userRepository.findByEmail(email);
-        if (user != null) {
-            return user.getVerificationCode();
-        }
-        return null;
+        // 从Redis中获取验证码
+        String key = "msg_" + email;
+        ValueOperations<String, String> valueOperations = stringRedisTemplate.opsForValue();
+        return valueOperations.get(key);
     }
 
     public boolean verifyPassword(String email, String password) {

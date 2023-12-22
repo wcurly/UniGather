@@ -19,9 +19,6 @@ public class User {
     @Column(name = "password")
     private String password;
 
-    @Column(name = "verification_code")
-    private String verificationCode;
-
     @Column(name = "enabled")
     private boolean enabled;
 
@@ -53,14 +50,6 @@ public class User {
 
     public String getPassword() {
         return password;
-    }
-
-    public void setVerificationCode(String verificationCode){
-        this.verificationCode = verificationCode;
-    }
-
-    public String getVerificationCode(){
-        return this.verificationCode;
     }
 
     public void setPassword(String password) {
