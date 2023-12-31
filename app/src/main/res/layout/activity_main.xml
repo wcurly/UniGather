@@ -5,6 +5,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="热门活动"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:padding="8dp" />
+
     <!-- 容器用于放置 HotEventsFragment -->
     <com.example.unigather.fragments.EventsViewGroup
         android:id="@+id/eventsViewGroup"
@@ -15,11 +23,11 @@
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="200dp" />-->
 
-    <!-- 容器用于放置 CategoryFilterFragment -->
-<!--    <FrameLayout-->
-<!--        android:id="@+id/containerCategoryFilter"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="500dp"/>-->
+<!--     容器用于放置 CategoryFilterFragment -->
+    <FrameLayout
+        android:id="@+id/containerCategoryFilter"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"/>
 
 </LinearLayout>
 

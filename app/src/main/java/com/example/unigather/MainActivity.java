@@ -24,11 +24,11 @@ public class MainActivity extends AppCompatActivity {
         eventsViewGroup = findViewById(R.id.eventsViewGroup);
         eventsViewGroup.setImages(images);
 
-        // 加载 CategoryFilterFragment
-//        if (savedInstanceState == null) {
-//            getSupportFragmentManager().beginTransaction()
-//                    .add(R.id.containerCategoryFilter, new CategoryFilterFragment())
-//                    .commit();
-//        }
+//         加载 CategoryFilterFragment
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.containerCategoryFilter, new CategoryFilterFragment())
+                    .commit();
+        }
     }
 }

@@ -30,13 +30,6 @@ public class EventsViewGroup extends LinearLayout {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
 
-
-        // 在这里设置高度为屏幕高度的1/4
-//        DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-//        int height = displayMetrics.heightPixels / 4;
-//        recyclerView.getLayoutParams().height = height;
-
-        // Images must be set via setImages method
     }
 
     public void setImages(int[] images) {
