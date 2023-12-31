@@ -6,16 +6,20 @@
     android:orientation="vertical">
 
     <!-- 容器用于放置 HotEventsFragment -->
-    <FrameLayout
-        android:id="@+id/containerHotEvents"
+    <com.example.unigather.fragments.EventsViewGroup
+        android:id="@+id/eventsViewGroup"
         android:layout_width="match_parent"
-        android:layout_height="200dp" />
+        android:layout_height="wrap_content" />
+<!--    <FrameLayout-->
+<!--        android:id="@+id/containerHotEvents"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="200dp" />-->
 
     <!-- 容器用于放置 CategoryFilterFragment -->
-    <FrameLayout
-        android:id="@+id/containerCategoryFilter"
-        android:layout_width="match_parent"
-        android:layout_height="500dp"/>
+<!--    <FrameLayout-->
+<!--        android:id="@+id/containerCategoryFilter"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="500dp"/>-->
 
 </LinearLayout>
 

@@ -215,6 +215,7 @@ public class ReleaseActivity extends AppCompatActivity {
             return true;
         }else if (item.getItemId() == R.id.action_publish) {
             // 处理发布按钮的点击事件
+            onReleaseButtonClick(null);
             return true;
         }
         // 其他菜单项...
