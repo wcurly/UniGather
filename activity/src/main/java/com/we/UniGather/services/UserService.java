@@ -41,12 +41,6 @@ public class UserService {
     }
 
     public void registerUser(String email, String password) {
-        // 检查邮箱是否已被注册且用户已激活
-        User existingUser = userRepository.findByEmailAndEnabledEquals(email, true);
-        if (existingUser != null) {
-            throw new IllegalArgumentException("Email is already registered and activated");
-        }
-
         String encryptedPassword = passwordEncoder.encode(password);
 
         // Create user and save to database (password hashing omitted for simplicity)
@@ -56,8 +50,6 @@ public class UserService {
         user.setEnabled(false); // The account is initially disabled until email verification
         userRepository.save(user);
 
-        // Send verification email
-        sendVerificationEmail(email);
     }
 
     // Method to send verification email
@@ -145,13 +137,14 @@ public class UserService {
 
     private final String secretKey = "your_secret_key";
 
-    public String generateToken(String email){
-        // 使用密钥创建签名密钥
-
+    public String generateToken(String email) {
+        // 生成Token
+        String token = UUID.randomUUID().toString();
+        // 将Token存入Redis中，过期时间为30分钟
+        ValueOperations<String, String> valueOperations = stringRedisTemplate.opsForValue();
+        valueOperations.set(token, email, 30L, TimeUnit.MINUTES);
+        return token;
     }
 
-    public void clearUserToken(){
-
-    }
 
 }

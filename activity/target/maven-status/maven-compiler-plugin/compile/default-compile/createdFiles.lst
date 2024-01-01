@@ -1,3 +1,8 @@
+com/we/UniGather/services/UserActivityService.class
 com/we/UniGather/repositories/ActivityRepository.class
+com/we/UniGather/models/Collection.class
 com/we/UniGather/models/Activity.class
 com/we/UniGather/controllers/ActivityController.class
+com/we/UniGather/repositories/UserActivityRepository.class
+com/we/UniGather/models/UserActivity.class
+com/we/UniGather/controllers/UserActivityController.class

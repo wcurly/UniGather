@@ -30,5 +30,10 @@ public class ActivityService {
 
         return newActivity;
     }
+
+    public void save(Activity activity) {
+        activityRepository.save(activity);
+    }
+
 }
 

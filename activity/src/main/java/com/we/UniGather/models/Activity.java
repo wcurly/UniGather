@@ -1,6 +1,7 @@
 package com.we.UniGather.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "activity")
@@ -22,8 +23,10 @@ public class Activity {
     @Column(name = "time")
     private String time;
 
-    @Column(name = "image")
-    private String image;
+    @ElementCollection
+    @CollectionTable(name = "activity_images", joinColumns = @JoinColumn(name = "activity_id"))
+    @Column(name = "image_path")
+    private List<String> images;
 
     @Column(name = "description")
     private String description;
@@ -40,12 +43,12 @@ public class Activity {
         // Default constructor
     }
 
-    public Activity(String title, String url, String location, String time, String image, String description, String type, String poster) {
+    public Activity(String title, String url, String location, String time, List<String> images, String description, String type, String poster) {
         this.title = title;
         this.url = url;
         this.location = location;
         this.time = time;
-        this.image = image;
+        this.images = images;
         this.description = description;
         this.type = type;
         this.poster = poster;
@@ -93,12 +96,12 @@ public class Activity {
         this.time = time;
     }
 
-    public String getImage() {
-        return image;
+    public List<String> getImage() {
+        return images;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setImage(List<String> image) {
+        this.images = image;
     }
 
     public String getDescription() {
@@ -135,7 +138,7 @@ public class Activity {
                 ", url='" + url +'\'' +
                 ", location='" + location + '\'' +
                 ", time='" + time + '\'' +
-                ", image='" + image + '\'' +
+                ", image='" + images + '\'' +
                 ", description='" + description + '\'' +
                 ", type='" + type +'\'' +
                 ", poster='" + poster +"\'" +
