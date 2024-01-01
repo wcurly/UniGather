@@ -1,21 +1,23 @@
 package com.we.UniGather.controllers;
 
 import com.we.UniGather.models.User;
+import com.we.UniGather.models.UserLoginDTO;
 import com.we.UniGather.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api")
 public class UserController {
 
+    private final UserService userService;
+
     @Autowired
-    private UserService userService;
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
     @PostMapping("/register")
     public ResponseEntity<String> register(@RequestParam String email, @RequestParam String password) {
@@ -47,22 +49,25 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<User> login(@RequestParam String email, @RequestParam String password) {
-        // 根据邮箱从数据库中获取用户信息
-        User user = userService.findByEmail(email);
+    public ResponseEntity<String> login(@RequestBody UserLoginDTO userLoginDTO) {
 
-        if (user == null) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
-        }
-
+        String email = userLoginDTO.getEmail();
+        String password = userLoginDTO.getPassword();
         // 验证用户输入的密码是否与数据库中存储的密码匹配
         if (userService.verifyPassword(email, password)) {
-            // 登录成功，返回成功信息和用户信息
-            return ResponseEntity.ok(user);
+            // 登录成功，返回成功信息
+            String token = userService.generateToken(userLoginDTO.getEmail());
+            return new ResponseEntity<>(token, HttpStatus.OK);
         } else {
-            // 密码不匹配，返回未授权状态
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
+            // 密码不匹配，返回错误信息
+            return new ResponseEntity<>("Invalid credentials", HttpStatus.UNAUTHORIZED);
         }
+    }
+
+    @PostMapping("/logout")
+    public ResponseEntity<String> logoutUser() {
+        userService.clearUserToken(); // 清除用户 Token 信息
+        return new ResponseEntity<>("Logged out successfully", HttpStatus.OK);
     }
 
 }

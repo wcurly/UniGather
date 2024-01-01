@@ -15,6 +15,7 @@ import javax.annotation.Resource;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeUtility;
 import java.util.Random;
+import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 @Service
@@ -25,8 +26,12 @@ public class UserService {
     @Resource
     private JavaMailSender javaMailSender;
 
+    private final UserRepository userRepository;
+
     @Autowired
-    private UserRepository userRepository;
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -51,15 +56,12 @@ public class UserService {
         user.setEnabled(false); // The account is initially disabled until email verification
         userRepository.save(user);
 
-        // Generate verification code
-        String verificationCode = generateVerificationCode();
-
         // Send verification email
-        sendVerificationEmail(email, verificationCode);
+        sendVerificationEmail(email);
     }
 
     // Method to send verification email
-    public String sendVerificationEmail(String email, String verificationCode) {
+    public String sendVerificationEmail(String email) {
         if (StringUtils.isBlank(email)) {
             throw new RuntimeException("未填写收件人邮箱");
         }
@@ -70,11 +72,11 @@ public class UserService {
         String verifyCode = valueOperations.get(key);
         if (verifyCode == null) {
             // 随机生成一个6位数字型的字符串
-            String code = generateVerificationCode();
+            verifyCode = generateVerificationCode();
             SimpleMailMessage mailMessage = new SimpleMailMessage();
             mailMessage.setTo(email);
             mailMessage.setSubject("Verification Code for UniGather");
-            mailMessage.setText("Your verification code is: " + verificationCode + "\n" +
+            mailMessage.setText("Your verification code is: " + verifyCode + "\n" +
                     "Please enter this code to activate your account." + "\n" +
                     "If you did not register for UniGather, please ignore this email." + "\n" +
                     "The verification code will expire in 5 minutes.");
@@ -85,7 +87,7 @@ public class UserService {
                 // 发送邮件
                 javaMailSender.send(mailMessage);
                 // 将生成的验证码存入Redis数据库中，并设置过期时间
-                valueOperations.set(key, code, 5L, TimeUnit.MINUTES);
+                valueOperations.set(key, verifyCode, 5L, TimeUnit.MINUTES);
                 return "邮件发送成功";
             } catch (Exception e) {
                 return "邮件发送失败";
@@ -136,8 +138,20 @@ public class UserService {
 
         if (user != null && user.isEnabled()) { // 检查用户是否存在且已激活
             // 应该使用密码加密器来验证密码
-            return user.getPassword().equals(password);
+            return passwordEncoder.matches(password, user.getPassword());
         }
         return false;
     }
+
+    private final String secretKey = "your_secret_key";
+
+    public String generateToken(String email){
+        // 使用密钥创建签名密钥
+
+    }
+
+    public void clearUserToken(){
+
+    }
+
 }
