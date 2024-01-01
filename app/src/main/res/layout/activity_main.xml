@@ -3,6 +3,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <TextView
@@ -10,24 +12,36 @@
         android:layout_height="wrap_content"
         android:text="热门活动"
         android:textStyle="bold"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:padding="8dp" />
 
-    <!-- 容器用于放置 HotEventsFragment -->
     <com.example.unigather.fragments.EventsViewGroup
         android:id="@+id/eventsViewGroup"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-<!--    <FrameLayout-->
-<!--        android:id="@+id/containerHotEvents"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="200dp" />-->
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"/>
 
-<!--     容器用于放置 CategoryFilterFragment -->
-    <FrameLayout
-        android:id="@+id/containerCategoryFilter"
+    <com.example.unigather.fragments.TagDropdownView
+        android:id="@+id/tag_dropdown_view"
         android:layout_width="match_parent"
-        android:layout_height="500dp"/>
+        android:layout_height="wrap_content" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_activities"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_margin="5dp"
+        android:scrollbars="none"
+        tools:listitem="@layout/item_activity"/>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:menu="@menu/bottom_navigation_menu" />
+
 
 </LinearLayout>
 

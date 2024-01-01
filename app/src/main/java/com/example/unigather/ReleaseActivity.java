@@ -213,7 +213,8 @@ public class ReleaseActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            finish();  // 关闭当前活动，返回到MainActivity
+            Intent homeIntent = new Intent(this, MainActivity.class);
+            startActivity(homeIntent);
             return true;
         }else if (item.getItemId() == R.id.action_publish) {
             // 处理发布按钮的点击事件
