@@ -38,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             } else if (item.getItemId() == R.id.navigation_profile) {
                 //没登录跳转登录页面，已登录跳转个人页面
+                Intent loginIntent = new Intent(this, LoginActivity.class);
+                startActivity(loginIntent);
                 return true;
             }
             return false;

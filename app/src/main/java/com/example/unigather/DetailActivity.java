@@ -44,7 +44,7 @@ public class DetailActivity extends AppCompatActivity {
 
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            finish();  // 关闭当前活动，返回到MainActivity
+            finish();  // 关闭当前活动
             return true;
         }
         // 其他菜单项...
