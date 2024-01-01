@@ -2,6 +2,7 @@ package com.example.unigather;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -21,7 +22,8 @@ public class UserActivity extends AppCompatActivity {
 
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            finish();  // 关闭当前活动，返回到MainActivity
+            Intent homeIntent = new Intent(this, MainActivity.class);
+            startActivity(homeIntent);
             return true;
         }
         // 其他菜单项...

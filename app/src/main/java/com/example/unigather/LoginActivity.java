@@ -42,7 +42,8 @@ public class LoginActivity extends AppCompatActivity {
 
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            finish();  // 关闭当前活动
+            Intent homeIntent = new Intent(this, MainActivity.class);
+            startActivity(homeIntent);
             return true;
         }
         // 其他菜单项...
